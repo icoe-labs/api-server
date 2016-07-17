@@ -29,7 +29,7 @@ fhir.searchParam.spotFixes = [
 	"f:Condition/f:onsetAge | f:Condition/f:onsetDate",
 	"Group.value":
 	"f:Condition/*[namespace-uri()='http://hl7.org/fhir' and starts-with(local-name(),'value')]",
-	"Observation.name": 
+	"Observation.name":
        "f:Observation/f:name | f:Observation/f:component/f:name",
 	"Observation.value-date":
 	"f:Observation/f:valuePeriod",
@@ -131,16 +131,16 @@ environments {
 	}
 	production {
 		grails.logging.jul.usebridge = false
-		grails.serverURL =  System.env.BASE_URL ?: "http://localhost:8080/fhir-server"
+		grails.serverURL =  System.env.BASE_URL ?: "http://icoe-smart-fhir-jelastic-server.cloudhub.io"
 		fhir.oauth = [
 			enabled: System.env.AUTH ? System.env.AUTH.toBoolean() : true,
 			tokenCacheSpec: System.env.TOKEN_CACHE_SPEC ?: 'maximumSize=1000,expireAfterWrite=30m',
-			introspectionUri: System.env.INTROSPECTION_URI ?: 'http://localhost:8080/openid-connect-server-webapp/introspect?token={token}',
+			introspectionUri: System.env.INTROSPECTION_URI ?: 'http://smart-authz-server.cloudhub.io/openid-connect-server-webapp/introspect?token={token}',
 			clientId: System.env.AUTH_CLIENT_ID ?: 'client',
 			clientSecret: System.env.AUTH_CLIENT_SECRET ?: 'secret',
-			registerUri: System.env.REGISTER_URI ?: 'http://localhost:8080/openid-connect-server-webapp/register',
-			authorizeUri: System.env.AUTHORIZE_URI ?: 'http://localhost:8080/openid-connect-server-webapp/authorize',
-			tokenUri: System.env.TOKEN_URI ?: 'http://localhost:8080/openid-connect-server-webapp/token'
+			registerUri: System.env.REGISTER_URI ?: 'http://smart-authz-server.cloudhub.io/openid-connect-server-webapp/register',
+			authorizeUri: System.env.AUTHORIZE_URI ?: 'http://smart-authz-server.cloudhub.io/openid-connect-server-webapp/authorize',
+			tokenUri: System.env.TOKEN_URI ?: 'http://smart-authz-server.cloudhub.io/openid-connect-server-webapp/token'
 		]
 		localAuth = [
 			clientId: System.env.CLIENT_ID ?: 'client',
@@ -174,7 +174,7 @@ log4j = {
 
 // Uncomment and edit the following lines to start using Grails encoding & escaping improvements
 
-/* remove this line 
+/* remove this line
  // GSP settings
  grails {
  views {
