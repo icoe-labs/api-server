@@ -115,7 +115,7 @@ environments {
 		grails.logging.jul.usebridge = true
 		grails.serverURL =  System.env.BASE_URL ?: "http://localhost:9080"
 		fhir.oauth = [
-			enabled: System.env.AUTH ? System.env.AUTH.toBoolean() : false,
+			enabled: System.env.AUTH ? System.env.AUTH.toBoolean() : true,
 			tokenCacheSpec: System.env.TOKEN_CACHE_SPEC ?: 'maximumSize=1000,expireAfterWrite=30m',
 			introspectionUri: System.env.INTROSPECTION_URI ?: 'http://localhost:8080/openid-connect-server-webapp/introspect?token={token}',
 			clientId: System.env.AUTH_CLIENT_ID ?: 'client',
