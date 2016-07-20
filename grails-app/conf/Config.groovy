@@ -117,12 +117,12 @@ environments {
 		fhir.oauth = [
 			enabled: System.env.AUTH ? System.env.AUTH.toBoolean() : false,
 			tokenCacheSpec: System.env.TOKEN_CACHE_SPEC ?: 'maximumSize=1000,expireAfterWrite=30m',
-			introspectionUri: System.env.INTROSPECTION_URI ?: 'http://localhost:9085/openid-connect-server-webapp/introspect?token={token}',
+			introspectionUri: System.env.INTROSPECTION_URI ?: 'http://localhost:8080/openid-connect-server-webapp/introspect?token={token}',
 			clientId: System.env.AUTH_CLIENT_ID ?: 'client',
 			clientSecret: System.env.AUTH_CLIENT_SECRET ?: 'secret',
-			registerUri: System.env.REGISTER_URI ?: 'http://localhost:9085/openid-connect-server-webapp/register',
-			authorizeUri: System.env.AUTHORIZE_URI ?: 'http://localhost:9085/openid-connect-server-webapp/authorize',
-			tokenUri: System.env.TOKEN_URI ?: 'http://localhost:9085/openid-connect-server-webapp/token'
+			registerUri: System.env.REGISTER_URI ?: 'http://localhost:8080/openid-connect-server-webapp/register',
+			authorizeUri: System.env.AUTHORIZE_URI ?: 'http://localhost:8080/openid-connect-server-webapp/authorize',
+			tokenUri: System.env.TOKEN_URI ?: 'http://localhost:8080/openid-connect-server-webapp/token'
 		]
 		localAuth = [
 			clientId: System.env.CLIENT_ID ?: 'client',
